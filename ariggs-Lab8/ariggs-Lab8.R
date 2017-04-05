@@ -46,48 +46,30 @@ summary(train)
 #Create a combined dataset
 whole <- rbind(train,test)
 whole2 <- rbind(train,test)
-whole.c <- whole
-whole.c2 <- whole2
 
-#Use equal width binning to bin a1 in whole and a2 in whole2
-whole$a1 <- discretize(whole$a1,categories = 10)
-whole2$a2 <- discretize(whole$a2,categories = 10)
-
-#Convert the combined datasets to nominal, so they can be used in C4.5
-whole.c$a1 <- as.factor(whole.c$a1)
-whole.c2$a2 <- as.factor(whole.c2$a2)
+#Use equal frequency binning to bin a1 in whole and a2 in whole2
+whole$a1 <- discretize(whole$a1, "frequency", categories = 10)
+whole2$a2 <- discretize(whole$a2, "frequency", categories = 10)
 
 #Remove the target features that are not being used in each set
 whole <- whole[,2:13]
 whole2 <- whole2[2:14]
 whole2$a1 <- NULL
-whole.c <- whole.c[,2:13]
-whole.c2 <- whole.c2[2:14]
-whole.c2$a1 <- NULL
 
 #Split the whole dataset into training and testing again
-set.seed(1)
-split <- createDataPartition(whole$a1, p=0.6)[[1]]
-split.train <- whole[split,]
-split.test <- whole[-split,]
-split2 <- createDataPartition(whole2$a2, p=0.6)[[1]]
-split.train2 <- whole2[split2,]
-split.test2 <- whole2[-split2,]
-split.c <- createDataPartition(whole.c$a1, p=0.6)[[1]]
-split.c.train <- whole.c[split.c,]
-split.c.test <- whole.c[-split.c,]
-split.c2 <- createDataPartition(whole.c2$a2, p=0.6)[[1]]
-split.c2.train <- whole.c2[split.c2,]
-split.c2.test <- whole.c2[-split.c2,]
-rm(split)
-rm(split2)
-rm(split.c)
-rm(split.c2)
+split.train <- whole[1:198,]
+split.test <- whole[199:338,]
+split2.train <- whole2[1:198,]
+split2.test <- whole2[199:338,]
+
+#Remove unneeded datasets
+rm(whole)
+rm(whole2)
 
 ###Model Creation###
 ##C4.5##
 # Build a decision tree for a1 using C4.5 (Weka's J48 implementation)
-train.model.nom <- J48(a1 ~ ., data=split.c.train)
+train.model.nom <- J48(a1 ~ ., data=split.train)
 
 # View details of the constructed tree
 #summary(train.model.nom)
@@ -96,7 +78,7 @@ train.model.nom <- J48(a1 ~ ., data=split.c.train)
 #plot(train.model.nom)
 
 # Build a decision tree for a2 using C4.5 (Weka's J48 implementation)
-train.model.nom2 <- J48(a2 ~ ., data=split.c2.train)
+train.model.nom2 <- J48(a2 ~ ., data=split2.train)
 
 # View details of the constructed tree
 #summary(train.model.nom2)
@@ -107,7 +89,7 @@ train.model.nom2 <- J48(a2 ~ ., data=split.c2.train)
 ##RIPPER##
 #Create RIPPER models for a1 and a2 using the split training set
 train.model.rules <- JRip(a1 ~ ., data=split.train)
-train.model.rules2 <- JRip(a2 ~ ., data=split.train2)
+train.model.rules2 <- JRip(a2 ~ ., data=split2.train)
 
 #Print the models
 writeLines("RIPPER Model created for a1:")
@@ -116,23 +98,27 @@ writeLines("RIPPER Model created for a2:")
 print(train.model.rules2)
 
 ###Evaluation###
-##C4.5##--------------------------------------------------------------------------NOT WORKING
+##C4.5##
 #Create predicitions for a1 and a2 using the test set
-test.predict.nom <- predict(train.model.nom, split.c.test)
+test.predict.nom <- predict(train.model.nom, split.test)
+test.predict.nom2 <- predict(train.model.nom2, split2.test)
 
 #Calculate the performance of a1 and a2 C4.5 models
-test.eval.nom <- confusionMatrix(test.predict.nom, split.c.test$a1)
+test.eval.nom <- confusionMatrix(test.predict.nom, split.test$a1)
+test.eval.nom2 <- confusionMatrix(test.predict.nom2, split2.test$a2)
 
+#Print the result of the evaluations
 print(test.eval.nom)
+print(test.eval.nom2)
 
 ##RIPPER##
 #Create predictions for a1 and a2 using the new test set
 test.predict.rules <- predict(train.model.rules, split.test)
-test.predict.rules2 <- predict(train.model.rules2, split.test2)
+test.predict.rules2 <- predict(train.model.rules2, split2.test)
 
 #Calculate the performance of the a1 and a2 RIPPER models
 test.eval.rules <- confusionMatrix(test.predict.rules, split.test$a1)
-test.eval.rules2 <- confusionMatrix(test.predict.rules2, split.test2$a2)
+test.eval.rules2 <- confusionMatrix(test.predict.rules2, split2.test$a2)
 
 #Print the result of the evaluations
 writeLines("RIPPER a1:")
