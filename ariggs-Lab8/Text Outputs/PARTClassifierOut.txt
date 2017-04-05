@@ -1,7 +1,7 @@
 === Classifier model ===
 
 Scheme:   PART
-Relation: Lab8.TrainTest-weka.filters.unsupervised.attribute.Discretize-O-B15-M-1.0-R13-19-unset-class-temporarily-weka.filters.unsupervised.attribute.Remove-R14-19
+Relation: Lab8.TrainTest-weka.filters.unsupervised.attribute.Discretize-O-B15-M-1.0-R13-19-unset-class-temporarily-weka.filters.unsupervised.attribute.Remove-R1,14-19
 
 PART decision list
 ------------------
@@ -13,140 +13,151 @@ mnO2 > 8.7 AND
 speed = high: '(-inf-5.986667]' (12.0/1.0)
 
 Cl > 9.985386 AND
-NH4 > 40 AND
+oPO4 > 48 AND
+mnO2 > 8.7 AND
+speed = medium AND
+season = winter: '(-inf-5.986667]' (7.0)
+
+Cl > 9.985386 AND
+PO4 > 43.5 AND
 oPO4 > 58.875 AND
-speed = medium: '(-inf-5.986667]' (39.0/3.0)
+speed = medium: '(-inf-5.986667]' (34.0/3.0)
 
 PO4 > 27.5 AND
 Cl <= 7.077661 AND
 mnO2 <= 10.9: '(47.893333-53.88]' (3.0/1.0)
 
 PO4 > 43.5 AND
-Chla > 14.7 AND
-mxPH > 7.75 AND
-size = medium: '(-inf-5.986667]' (16.0/2.0)
+mnO2 <= 6.35 AND
+Cl > 45.273 AND
+NH4 <= 931.83301: '(-inf-5.986667]' (14.0/1.0)
 
 PO4 > 43.5 AND
 mnO2 <= 6.35 AND
-Cl <= 47 AND
-NH4 > 122.85: '(11.973333-17.96]' (3.0)
+speed = low: '(23.946667-29.933333]' (4.0/2.0)
 
 PO4 > 43.5 AND
-mnO2 <= 6.35 AND
-NH4 <= 271.25 AND
-Cl > 44.205: '(-inf-5.986667]' (8.0)
-
-PO4 > 27.5 AND
-mnO2 <= 6.35 AND
-mxPH > 7.75: '(23.946667-29.933333]' (3.0)
+season = summer AND
+speed = medium AND
+mxPH > 7.93: '(17.96-23.946667]' (3.0)
 
 PO4 > 43.5 AND
-season = winter AND
-size = large: '(-inf-5.986667]' (7.0/2.0)
+size = large AND
+season = winter: '(-inf-5.986667]' (7.0/2.0)
+
+PO4 > 43.5 AND
+size = large AND
+Chla > 4.667 AND
+mxPH <= 8.6: '(-inf-5.986667]' (8.0)
+
+PO4 > 43.5 AND
+size = large AND
+mxPH <= 8.55: '(17.96-23.946667]' (3.0/1.0)
+
+PO4 > 43.5 AND
+size = medium AND
+season = summer: '(-inf-5.986667]' (7.0/3.0)
 
 PO4 > 43.5 AND
 season = spring AND
-mxPH > 8: '(-inf-5.986667]' (4.0/1.0)
+mxPH <= 7.9: '(5.986667-11.973333]' (3.0/1.0)
 
 PO4 > 43.5 AND
 season = winter AND
-speed = high AND
-mxPH <= 8.27: '(11.973333-17.96]' (7.0/2.0)
+Chla <= 7.6 AND
+size = medium: '(11.973333-17.96]' (5.0/1.0)
 
-PO4 > 43.5 AND
-season = winter AND
-size = medium AND
-NH4 <= 122.85: '(11.973333-17.96]' (3.0)
+size = large AND
+Chla <= 2 AND
+mnO2 <= 10.466462: '(47.893333-53.88]' (3.0)
 
-PO4 > 43.5 AND
-season = winter: '(-inf-5.986667]' (5.0/2.0)
+NH4 > 40 AND
+mxPH > 8.4 AND
+speed = medium: '(5.986667-11.973333]' (3.0/1.0)
 
-PO4 > 43.5 AND
-season = summer AND
-speed = medium AND
-mxPH > 7.93: '(17.96-23.946667]' (4.0/1.0)
-
-NH4 > 42 AND
-Cl > 10.207 AND
-season = summer AND
+NH4 > 40 AND
 speed = low AND
-mnO2 <= 8.5: '(-inf-5.986667]' (3.0/1.0)
+mnO2 <= 9.9: '(5.986667-11.973333]' (3.0)
 
-PO4 > 43.5 AND
+NH4 > 40 AND
+season = winter AND
+mxPH > 8.25: '(-inf-5.986667]' (6.0/1.0)
+
+PO4 > 27.5 AND
+season = spring AND
+mxPH > 8.15: '(-inf-5.986667]' (3.0/1.0)
+
+PO4 > 27.5 AND
 mnO2 > 10.1 AND
-speed = medium: '(-inf-5.986667]' (5.0/1.0)
+NH4 > 40 AND
+season = autumn AND
+size = medium: '(-inf-5.986667]' (7.0/1.0)
 
-PO4 > 43.5 AND
-speed = low AND
-PO4 <= 244: '(-inf-5.986667]' (5.0)
-
-PO4 > 43.5 AND
-oPO4 > 10.8 AND
-speed = low: '(5.986667-11.973333]' (5.0/1.0)
-
-size = large AND
-Chla <= 1.5 AND
-id > 178: '(47.893333-53.88]' (3.0)
-
-PO4 > 27.5 AND
+mnO2 <= 10.8 AND
 speed = medium AND
-Chla > 3.2: '(5.986667-11.973333]' (4.0/1.0)
+NO3 <= 3.78: '(11.973333-17.96]' (8.0/3.0)
 
-speed = medium AND
-season = spring: '(65.853333-71.84]' (3.0/2.0)
+speed = low: '(-inf-5.986667]' (3.0/2.0)
 
-id <= 51 AND
+size = medium AND
+speed = high: '(41.906667-47.893333]' (9.0/6.0)
+
+size = small AND
 mnO2 > 10.8 AND
-Cl <= 13 AND
-Cl > 5.326: '(29.933333-35.92]' (5.0)
-
-PO4 > 27.5 AND
-Cl <= 61.05 AND
 speed = high AND
-mxPH > 7.62: '(17.96-23.946667]' (6.0/1.0)
-
-size = large AND
-speed = medium: '(11.973333-17.96]' (3.0/1.0)
-
-size = medium AND
-season = winter: '(35.92-41.906667]' (2.0/1.0)
-
-size = medium AND
-mxPH > 7.62 AND
-PO4 > 17.333: '(41.906667-47.893333]' (3.0)
-
-size = medium AND
-season = autumn: '(-inf-5.986667]' (3.0/1.0)
+mnO2 <= 11.9 AND
+Cl > 5.326: '(29.933333-35.92]' (5.0/1.0)
 
 size = small AND
-Chla > 2.338: '(23.946667-29.933333]' (10.0/7.0)
+mxPH <= 7.09 AND
+mxPH > 6.5 AND
+mxPH <= 6.8: '(41.906667-47.893333]' (4.0/1.0)
 
 size = small AND
-mxPH <= 7.14: '(23.946667-29.933333]' (3.0/2.0)
+speed = medium AND
+season = spring: '(65.853333-71.84]' (2.0/1.0)
 
 size = small AND
-speed = high AND
-id <= 42 AND
-mnO2 <= 10.68 AND
-oPO4 <= 7.75: '(71.84-77.826667]' (3.0/1.0)
+Chla <= 2.1 AND
+mxPH > 7.14 AND
+PO4 <= 47 AND
+oPO4 > 2 AND
+oPO4 > 3 AND
+NH4 <= 27.5: '(11.973333-17.96]' (4.0)
 
 size = small AND
-NH4 > 14.75 AND
-speed = high AND
-mxPH <= 7.84 AND
-oPO4 > 2: '(11.973333-17.96]' (4.0)
+season = spring AND
+mnO2 <= 9.6: '(11.973333-17.96]' (3.0/1.0)
 
 size = small AND
-speed = high AND
-id > 42: '(53.88-59.866667]' (5.0/2.0)
+season = spring: '(5.986667-11.973333]' (3.0/2.0)
 
 size = small AND
+NH4 > 40 AND
 speed = medium: '(-inf-5.986667]' (2.0/1.0)
 
-size = medium: '(5.986667-11.973333]' (3.0/2.0)
+size = small AND
+NH4 > 40 AND
+season = winter: '(11.973333-17.96]' (2.0/1.0)
 
-id <= 107: '(65.853333-71.84]' (2.0)
+size = small AND
+season = autumn AND
+oPO4 > 13: '(17.96-23.946667]' (3.0/1.0)
+
+size = small AND
+season = winter AND
+oPO4 <= 6.5: '(23.946667-29.933333]' (3.0/2.0)
+
+size = small AND
+season = winter: '(41.906667-47.893333]' (3.0/1.0)
+
+size = small AND
+season = summer: '(-inf-5.986667]' (3.0/2.0)
+
+size = small: '(23.946667-29.933333]' (2.0/1.0)
+
+size = medium: '(-inf-5.986667]' (2.0/1.0)
 
 : '(35.92-41.906667]' (2.0)
 
-Number of Rules  : 	35
+Number of Rules  : 	37
