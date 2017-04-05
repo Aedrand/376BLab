@@ -14,7 +14,7 @@
 			},
 			"connections" : {
 				"dataSet" : [
-					"TrainingSetMaker"
+					"Train Assigner"
 				]
 			},
 			"coordinates" : "72,118"
@@ -32,10 +32,10 @@
 			},
 			"connections" : {
 				"dataSet" : [
-					"TestSetMaker"
+					"Test Assigner"
 				]
 			},
-			"coordinates" : "74,218"
+			"coordinates" : "74,219"
 		},
 		{
 			"class" : "weka.knowledgeflow.steps.Loader",
@@ -50,10 +50,10 @@
 			},
 			"connections" : {
 				"dataSet" : [
-					"TestSetMakerDesc"
+					"Desc Test Assigner"
 				]
 			},
-			"coordinates" : "75,461"
+			"coordinates" : "76,462"
 		},
 		{
 			"class" : "weka.knowledgeflow.steps.Loader",
@@ -68,10 +68,10 @@
 			},
 			"connections" : {
 				"dataSet" : [
-					"TrainingSetMakerDesc"
+					"Desc Train Assigner"
 				]
 			},
-			"coordinates" : "74,349"
+			"coordinates" : "74,350"
 		},
 		{
 			"class" : "weka.knowledgeflow.steps.Classifier",
@@ -94,7 +94,7 @@
 					"TextViewer"
 				]
 			},
-			"coordinates" : "347,159"
+			"coordinates" : "576,159"
 		},
 		{
 			"class" : "weka.knowledgeflow.steps.TrainingSetMaker",
@@ -106,7 +106,7 @@
 					"RandomTree"
 				]
 			},
-			"coordinates" : "212,118"
+			"coordinates" : "441,118"
 		},
 		{
 			"class" : "weka.knowledgeflow.steps.TestSetMaker",
@@ -118,7 +118,7 @@
 					"RandomTree"
 				]
 			},
-			"coordinates" : "215,218"
+			"coordinates" : "444,218"
 		},
 		{
 			"class" : "weka.knowledgeflow.steps.TrainingSetMaker",
@@ -130,7 +130,7 @@
 					"PART"
 				]
 			},
-			"coordinates" : "217,350"
+			"coordinates" : "446,350"
 		},
 		{
 			"class" : "weka.knowledgeflow.steps.TestSetMaker",
@@ -142,7 +142,7 @@
 					"PART"
 				]
 			},
-			"coordinates" : "216,461"
+			"coordinates" : "445,461"
 		},
 		{
 			"class" : "weka.knowledgeflow.steps.Classifier",
@@ -165,7 +165,7 @@
 					"TextViewer"
 				]
 			},
-			"coordinates" : "355,404"
+			"coordinates" : "584,404"
 		},
 		{
 			"class" : "weka.knowledgeflow.steps.TextViewer",
@@ -174,7 +174,7 @@
 			},
 			"connections" : {
 			},
-			"coordinates" : "491,283"
+			"coordinates" : "720,283"
 		},
 		{
 			"class" : "weka.knowledgeflow.steps.ClassifierPerformanceEvaluator",
@@ -196,7 +196,7 @@
 					"PART Performance Visualization"
 				]
 			},
-			"coordinates" : "491,468"
+			"coordinates" : "720,468"
 		},
 		{
 			"class" : "weka.knowledgeflow.steps.ClassifierPerformanceEvaluator",
@@ -210,45 +210,9 @@
 			"connections" : {
 				"text" : [
 					"TextViewer"
-				],
-				"thresholdData" : [
-					"Random Tree ROC"
-				],
-				"visualizableError" : [
-					"Random Tree Performance Visualization"
 				]
 			},
-			"coordinates" : "491,87"
-		},
-		{
-			"class" : "weka.knowledgeflow.steps.ModelPerformanceChart",
-			"properties" : {
-				"name" : "Random Tree Performance Visualization",
-				"offscreenAdditionalOpts" : "",
-				"offscreenHeight" : "400",
-				"offscreenRendererName" : "Weka Chart Renderer",
-				"offscreenWidth" : "500",
-				"offscreenXAxis" : "",
-				"offscreenYAxis" : ""
-			},
-			"connections" : {
-			},
-			"coordinates" : "628,150"
-		},
-		{
-			"class" : "weka.knowledgeflow.steps.ModelPerformanceChart",
-			"properties" : {
-				"name" : "Random Tree ROC",
-				"offscreenAdditionalOpts" : "",
-				"offscreenHeight" : "400",
-				"offscreenRendererName" : "Weka Chart Renderer",
-				"offscreenWidth" : "500",
-				"offscreenXAxis" : "",
-				"offscreenYAxis" : ""
-			},
-			"connections" : {
-			},
-			"coordinates" : "627,19"
+			"coordinates" : "720,87"
 		},
 		{
 			"class" : "weka.knowledgeflow.steps.ModelPerformanceChart",
@@ -263,7 +227,7 @@
 			},
 			"connections" : {
 			},
-			"coordinates" : "638,394"
+			"coordinates" : "873,395"
 		},
 		{
 			"class" : "weka.knowledgeflow.steps.ModelPerformanceChart",
@@ -278,7 +242,127 @@
 			},
 			"connections" : {
 			},
-			"coordinates" : "640,536"
+			"coordinates" : "875,537"
+		},
+		{
+			"class" : "weka.knowledgeflow.steps.ClassAssigner",
+			"properties" : {
+				"classColumn" : "a1",
+				"name" : "Train Assigner"
+			},
+			"connections" : {
+				"dataSet" : [
+					"Remove"
+				]
+			},
+			"coordinates" : "180,118"
+		},
+		{
+			"class" : "weka.knowledgeflow.steps.ClassAssigner",
+			"properties" : {
+				"classColumn" : "a1",
+				"name" : "Test Assigner"
+			},
+			"connections" : {
+				"dataSet" : [
+					"Remove2"
+				]
+			},
+			"coordinates" : "180,219"
+		},
+		{
+			"class" : "weka.knowledgeflow.steps.ClassAssigner",
+			"properties" : {
+				"classColumn" : "a1",
+				"name" : "Desc Train Assigner"
+			},
+			"connections" : {
+				"dataSet" : [
+					"Remove3"
+				]
+			},
+			"coordinates" : "183,350"
+		},
+		{
+			"class" : "weka.knowledgeflow.steps.ClassAssigner",
+			"properties" : {
+				"classColumn" : "a1",
+				"name" : "Desc Test Assigner"
+			},
+			"connections" : {
+				"dataSet" : [
+					"Remove4"
+				]
+			},
+			"coordinates" : "179,462"
+		},
+		{
+			"class" : "weka.knowledgeflow.steps.Filter",
+			"properties" : {
+				"filter" : {
+					"type" : "optionHandler",
+					"class" : "weka.filters.unsupervised.attribute.Remove",
+					"options" : "-R 14-19"
+				},
+				"name" : "Remove"
+			},
+			"connections" : {
+				"dataSet" : [
+					"TrainingSetMaker"
+				]
+			},
+			"coordinates" : "291,118"
+		},
+		{
+			"class" : "weka.knowledgeflow.steps.Filter",
+			"properties" : {
+				"filter" : {
+					"type" : "optionHandler",
+					"class" : "weka.filters.unsupervised.attribute.Remove",
+					"options" : "-R 14-19"
+				},
+				"name" : "Remove2"
+			},
+			"connections" : {
+				"dataSet" : [
+					"TestSetMaker"
+				]
+			},
+			"coordinates" : "294,219"
+		},
+		{
+			"class" : "weka.knowledgeflow.steps.Filter",
+			"properties" : {
+				"filter" : {
+					"type" : "optionHandler",
+					"class" : "weka.filters.unsupervised.attribute.Remove",
+					"options" : "-R 14-19"
+				},
+				"name" : "Remove3"
+			},
+			"connections" : {
+				"dataSet" : [
+					"TrainingSetMakerDesc"
+				]
+			},
+			"coordinates" : "292,350"
+		},
+		{
+			"class" : "weka.knowledgeflow.steps.Filter",
+			"properties" : {
+				"filter" : {
+					"type" : "optionHandler",
+					"class" : "weka.filters.unsupervised.attribute.Remove",
+					"options" : "-R 14-19"
+				},
+				"name" : "Remove4"
+			},
+			"connections" : {
+				"dataSet" : [
+					"TestSetMakerDesc"
+				]
+			},
+			"coordinates" : "292,462"
 		}
 	]
 }

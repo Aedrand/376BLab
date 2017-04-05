@@ -1,0 +1,13 @@
+=== Evaluation result ===
+
+Scheme: RandomTree
+Options: -K 5 -M 1.0 -V 0.001 -S 1
+Relation: Lab8.Test-weka.filters.unsupervised.attribute.Remove-R14-19
+
+
+Correlation coefficient                  0.2871
+Mean absolute error                     13.1789
+Root mean squared error                 21.7015
+Relative absolute error                 82.2084 %
+Root relative squared error            105.8797 %
+Total Number of Instances              140     
