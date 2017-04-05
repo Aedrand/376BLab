@@ -48,8 +48,8 @@ whole <- rbind(train,test)
 whole2 <- rbind(train,test)
 
 #Use equal frequency binning to bin a1 in whole and a2 in whole2
-whole$a1 <- discretize(whole$a1, "frequency", categories = 10)
-whole2$a2 <- discretize(whole$a2, "frequency", categories = 10)
+whole$a1 <- discretize(whole$a1, "frequency", categories = 5)
+whole2$a2 <- discretize(whole$a2, "frequency", categories = 5)
 
 #Remove the target features that are not being used in each set
 whole <- whole[,2:13]
@@ -72,19 +72,19 @@ rm(whole2)
 train.model.nom <- J48(a1 ~ ., data=split.train)
 
 # View details of the constructed tree
-#summary(train.model.nom)
+summary(train.model.nom)
 
 # Plot the decision tree
-#plot(train.model.nom)
+plot(train.model.nom)
 
 # Build a decision tree for a2 using C4.5 (Weka's J48 implementation)
 train.model.nom2 <- J48(a2 ~ ., data=split2.train)
 
 # View details of the constructed tree
-#summary(train.model.nom2)
+summary(train.model.nom2)
 
 # Plot the decision tree
-#plot(train.model.nom2)
+plot(train.model.nom2)
 
 ##RIPPER##
 #Create RIPPER models for a1 and a2 using the split training set
@@ -108,7 +108,9 @@ test.eval.nom <- confusionMatrix(test.predict.nom, split.test$a1)
 test.eval.nom2 <- confusionMatrix(test.predict.nom2, split2.test$a2)
 
 #Print the result of the evaluations
+writeLines("C4.5 a1:")
 print(test.eval.nom)
+writeLines("C4.5 a2:")
 print(test.eval.nom2)
 
 ##RIPPER##
