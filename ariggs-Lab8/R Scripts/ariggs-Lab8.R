@@ -75,7 +75,9 @@ train.model.nom <- J48(a1 ~ ., data=split.train)
 summary(train.model.nom)
 
 # Plot the decision tree
+png("a1C4.5Tree.png", width = 1000, height = 1000)
 plot(train.model.nom)
+dev.off()
 
 # Build a decision tree for a2 using C4.5 (Weka's J48 implementation)
 train.model.nom2 <- J48(a2 ~ ., data=split2.train)
@@ -84,7 +86,9 @@ train.model.nom2 <- J48(a2 ~ ., data=split2.train)
 summary(train.model.nom2)
 
 # Plot the decision tree
+png("a2C4.5Tree.png", width = 1000, height = 1000)
 plot(train.model.nom2)
+dev.off()
 
 ##RIPPER##
 #Create RIPPER models for a1 and a2 using the split training set
