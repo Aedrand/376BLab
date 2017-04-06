@@ -7,7 +7,7 @@
 				"loader" : {
 					"type" : "loader",
 					"class" : "weka.core.converters.ArffLoader",
-					"filePath" : "C:/Users/Andrew Riggs/GIT REPOS/376BLab/ariggs-Lab8/Lab8.Train.arff",
+					"filePath" : "C:/Users/Andrew Riggs/GIT REPOS/376BLab/ariggs-Lab8/WEKA Files/Lab8.Train.arff",
 					"useRelativePath" : false
 				},
 				"name" : "Training Loader"
@@ -25,7 +25,7 @@
 				"loader" : {
 					"type" : "loader",
 					"class" : "weka.core.converters.ArffLoader",
-					"filePath" : "C:/Users/Andrew Riggs/GIT REPOS/376BLab/ariggs-Lab8/Lab8.Test.arff",
+					"filePath" : "C:/Users/Andrew Riggs/GIT REPOS/376BLab/ariggs-Lab8/WEKA Files/Lab8.Test.arff",
 					"useRelativePath" : false
 				},
 				"name" : "Testing Loader"
@@ -43,7 +43,7 @@
 				"loader" : {
 					"type" : "loader",
 					"class" : "weka.core.converters.ArffLoader",
-					"filePath" : "C:/Users/Andrew Riggs/GIT REPOS/376BLab/ariggs-Lab8/Lab8.Test.Desc.arff",
+					"filePath" : "C:/Users/Andrew Riggs/GIT REPOS/376BLab/ariggs-Lab8/WEKA Files/Lab8.Test.Desc.arff",
 					"useRelativePath" : false
 				},
 				"name" : "Desc Testing Loader"
@@ -61,7 +61,7 @@
 				"loader" : {
 					"type" : "loader",
 					"class" : "weka.core.converters.ArffLoader",
-					"filePath" : "C:/Users/Andrew Riggs/GIT REPOS/376BLab/ariggs-Lab8/Lab8.Train.Desc.arff",
+					"filePath" : "C:/Users/Andrew Riggs/GIT REPOS/376BLab/ariggs-Lab8/WEKA Files/Lab8.Train.Desc.arff",
 					"useRelativePath" : false
 				},
 				"name" : "Desc Training Loader"
@@ -302,7 +302,7 @@
 				"filter" : {
 					"type" : "optionHandler",
 					"class" : "weka.filters.unsupervised.attribute.Remove",
-					"options" : "-R 14-19"
+					"options" : "-R 1,14-19"
 				},
 				"name" : "Remove"
 			},
@@ -319,7 +319,7 @@
 				"filter" : {
 					"type" : "optionHandler",
 					"class" : "weka.filters.unsupervised.attribute.Remove",
-					"options" : "-R 14-19"
+					"options" : "-R 1,14-19"
 				},
 				"name" : "Remove2"
 			},
@@ -336,7 +336,7 @@
 				"filter" : {
 					"type" : "optionHandler",
 					"class" : "weka.filters.unsupervised.attribute.Remove",
-					"options" : "-R 14-19"
+					"options" : "-R 1,14-19"
 				},
 				"name" : "Remove3"
 			},
@@ -353,7 +353,7 @@
 				"filter" : {
 					"type" : "optionHandler",
 					"class" : "weka.filters.unsupervised.attribute.Remove",
-					"options" : "-R 14-19"
+					"options" : "-R 1,14-19"
 				},
 				"name" : "Remove4"
 			},
